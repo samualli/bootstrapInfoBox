@@ -85,6 +85,7 @@ $(document).ready(function() {
     
     //-----Animatic
     $("#animatic").click(function(){
+        
         $("#sec_top").css({"margin-top": "100%", "opacity": "0"});
         $("#sec_bottom").css({"margin-top": "0%", "opacity": "1"});
         $("#sec_left").css({"margin-left": "-100%", "opacity": "0"});
@@ -97,6 +98,8 @@ $(document).ready(function() {
     
     //----Tradeshow
         $("#banners").click(function(){
+        $("#sec_top").css({"margin-top": "100%", "opacity": "0"});
+        $("#sec_bottom").css({"margin-top": "-100%", "opacity": "0"});
         $("#sec_left").css({"margin-left": "0%", "opacity": "1"});
         $("#infoBox").css({"background": "rgba(14,27,77,0.8)"});
         //Change Text of the InfoBox
@@ -105,5 +108,36 @@ $(document).ready(function() {
         $("h4 > span").html("Tradeshow Banners");
     });
     
+    
+        //Cursor Moving Background Code
+    $("section").mousemove(function(evt){
+        var xDistance, yDistance;
+        var xOffset = 250; //Sidebar Width
+        var xPos = evt.pageX
+        var yPos = evt.pageY;
+        var xCenter = window.innerWidth / 2;
+        var yCenter = window.innerHeight / 2;
+        
+        //Greater the distance greater the velocity
+        yDistance = yPos - yCenter;
+        xDistance = xPos - xCenter;
+        
+        //Accounting for sidebar if present
+        if(window.innerWidth > 768){
+            $(this).css({"left": "-50px"});
+            xDistance -= xOffset;
+                if (xDistance > 0){
+                    $(this).css({"margin-left": "0px"});
+                        }else{
+                    $(this).css({"margin-left": "-50px"});    
+                }
+         }else{
+             $(this).css({"left": "0px"});
+         }
+        
+
+        
+
+    });
 });
 

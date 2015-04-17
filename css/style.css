@@ -20,7 +20,12 @@ html{
  overflow:hidden;
 }
 
+/*OFFSET For image scroll*/
+h1,h3{
+    padding-left: 50px;
+}
 h1{ 
+    padding-top: 50px;
     font-family:'Roboto';
     font-weight:100;
     font-size:3em;
@@ -37,10 +42,14 @@ h4{
     text-align: right;
 }
 section{
+    left: -50px;
+    
+    
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
 }
 #sec_bottom{
     background-image: url("../img/bossBattle.png");
